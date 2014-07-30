@@ -13,35 +13,29 @@ Node::~Node()
 }
 
 int Node::getLeftSibling(){
-	if (isLeftChild) {
-		return 0;
+	if (!isLeftChild && parent != nullptr) {
+		return parent->getLeftChild()->getValue();
 	}
 	else {
-		return parent->getLeftChild();
+		return 0;
 	}
 }
 
 int Node::getRightSibling(){
-	if (isLeftChild) {
-		return parent->getRightChild();
+	if (isLeftChild && parent != nullptr) {
+		return parent->getRightChild()->getValue();
 	}
 	else {
 		return 0;
 	}
 }
 
-int Node::getLeftChild() {
-	if (left != nullptr){
-		return left->getValue();
-	}
-	return 0;
+Node* Node::getLeftChild() {
+	return left;
 }
 
-int Node::getRightChild(){
-	if (right != nullptr){
-		return right->getValue();
-	}
-	return 0;
+Node* Node::getRightChild(){
+	return right;
 }
 
 int Node::getParentValue(){
@@ -55,7 +49,7 @@ int Node::getValue(){
 	return value;
 }
 
-void Node::createChildren(int, int){
+void Node::createChildren(){
 	left = new Node(value + getLeftSibling(), this, true);
-	right = new Node(value + getRightSibling(), this, true);
+	right = new Node(value + getRightSibling(), this, false);
 }

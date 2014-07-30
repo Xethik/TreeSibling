@@ -4,13 +4,19 @@
 
 #include "Node.h"
 
+void createDepth(Node* curNode, int curDepth, int maxDepth) {
+	if (curDepth < maxDepth) {
+		curNode->createChildren();
+		createDepth(curNode->getLeftChild(), curDepth + 1, maxDepth);
+		createDepth(curNode->getRightChild(), curDepth + 1, maxDepth);
+	}
+}
+
 int main() {
 	int depth = 1;
-	Node* root = new Node();
+	Node* root = new Node(1, nullptr, false);
 
-	for (int i = 0; i < depth; i++) {
-
-	}
+	createDepth(root, 1, 3);
 
 	return 0;
 }

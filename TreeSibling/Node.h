@@ -20,12 +20,14 @@ public:
 
 	int getLeftSibling(); //Get parent's left child's value
 	int getRightSibling(); //Get parent's right child's value
-	int getLeftChild(); //Get left child's value
-	int getRightChild(); //Get right child's value
+
+	Node* getLeftChild(); //Get left child
+	Node* getRightChild(); //Get right child
+
 	int getParentValue(); //Get parent's value
 	int getValue(); //Get node's value
 
-	void createChildren(int, int); //Add left and right child
+	void createChildren(); //Add left and right child
 };
 
 #endif
