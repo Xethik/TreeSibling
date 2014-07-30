@@ -5,6 +5,12 @@
 #include "Node.h"
 
 int main() {
+	int depth = 1;
+	Node* root = new Node();
+
+	for (int i = 0; i < depth; i++) {
+
+	}
 
 	return 0;
 }

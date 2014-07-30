@@ -10,18 +10,22 @@ private:
 	Node* left; //Left child. Null if leaf
 	Node* right; //Right child. Null if leaf
 
-	bool isLeftChild; //True if the boolean is the left child of its parent node
+	
 
 public:
-	Node();
+	Node(int, Node*, bool);
 	~Node();
 
-	int getLeftSibling();
-	int getRightSibling();
-	int getParentValue();
-	int getValue();
+	bool isLeftChild; //True if the boolean is the left child of its parent node
 
-	void createChildren();
+	int getLeftSibling(); //Get parent's left child's value
+	int getRightSibling(); //Get parent's right child's value
+	int getLeftChild(); //Get left child's value
+	int getRightChild(); //Get right child's value
+	int getParentValue(); //Get parent's value
+	int getValue(); //Get node's value
+
+	void createChildren(int, int); //Add left and right child
 };
 
 #endif
