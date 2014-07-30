@@ -6,7 +6,13 @@
 #include <iostream>
 
 int main() {
-	int depth = 4;
+	int depth;
+	std::cout << "Enter a tree depth ( > 0): ";
+	while (!(std::cin >> depth)) {
+		std::cout << "Invalid input, enter an integer greater than zero." << std::endl << "Enter a tree depth ( > 0): ";
+		std::cin.clear();
+		std::cin.ignore('\n');
+	}
 	int** tree = new int*[depth];
 
 	tree[0] = new int[1];
