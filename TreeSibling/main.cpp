@@ -116,5 +116,10 @@ int main() {
 	}
 
 	printPretty(tree, 1, 0, depth, cout);
+
+	for (int i = 0; i < depth; i++) {
+		delete tree[i];
+	}
+	delete tree;
 	return 0;
 }
